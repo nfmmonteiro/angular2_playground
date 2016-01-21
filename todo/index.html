@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Getting Started with Angular 2</title>
+</head>
+<body>
+
+    <!-- IE required polyfills, in this exact order -->
+	<script src="node_modules/es6-shim/es6-shim.min.js"></script>
+	<script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+	<script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+
+	<script src="node_modules/systemjs/dist/system.js"></script>
+	<script src="node_modules/rxjs/bundles/Rx.js"></script>
+	<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+	<!-- 2. Configure SystemJS -->
+    <script>
+
+      System.config({
+        packages: {
+          app: {
+            format: 'register',
+            defaultExtension: 'js'
+          }
+        }
+      });
+
+      System.import('built/todo.js')
+      	.then(null, console.error.bind(console));
+
+    </script>
+
+    <todo-app></todo-app>
+
+</body>
+</html>
