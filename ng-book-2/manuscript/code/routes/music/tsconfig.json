@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": false,
+    "sourceMap": true
+  },
+  "filesGlob": [
+    "./app/**/*.ts",
+    "./test/**/*.ts",
+    "!./node_modules/**/*.ts"
+  ],
+  "files": [
+    "./typings/tsd.d.ts",
+    "./app/ts/app.ts",
+    "./app/ts/components/AlbumComponent.ts",
+    "./app/ts/components/ArtistComponent.ts",
+    "./app/ts/components/SearchComponent.ts",
+    "./app/ts/components/TrackComponent.ts",
+    "./app/ts/services/SpotifyService.ts",
+    "./app/ts/vendor.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}

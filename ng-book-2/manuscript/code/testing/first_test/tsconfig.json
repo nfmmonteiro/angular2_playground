@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noEmitHelpers": false,
+    "sourceMap": true
+  },
+  "files": [
+    "./typings/tsd.d.ts"
+    "./app/Calculator.ts",
+    "./test/CalculatorSpec.ts",
+    "./typings/jasmine/jasmine.d.ts",
+    "./typings/requirejs/require.d.ts",
+  ],
+  "filesGlob": [
+    "./app/**/*.ts",
+    "./test/**/*.ts",
+    "!./node_modules/**/*.ts"
+  ],
+  "compileOnSave": false,
+  "buildOnSave": false
+}

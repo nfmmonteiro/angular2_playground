@@ -1,0 +1,29 @@
+{
+  "name": "first-test-app",
+  "version": "0.1.0",
+  "scripts": {
+    "go": "echo go",
+    "test": "karma start"
+  },
+  "devDependencies": {
+    "jasmine-core": "2.4.1",
+    "jasmine-jquery": "2.1.1",
+    "karma": "0.13.15",
+    "karma-chrome-launcher": "0.2.2",
+    "karma-jasmine": "0.3.6",
+    "karma-phantomjs-launcher": "0.2.1",
+    "karma-requirejs": "0.2.2",
+    "karma-typescript-preprocessor": "0.0.21",
+    "phantomjs": "1.9.19",
+    "requirejs": "2.1.22",
+    "typescript": "1.7.3"
+  },
+  "dependencies": {
+    "angular2": "2.0.0-beta.2",
+    "es6-promise": "3.0.2",
+    "es6-shim": "0.33.3",
+    "reflect-metadata": "0.1.2",
+    "rxjs": "5.0.0-beta.0",
+    "zone.js": "0.5.10"
+  }
+}
