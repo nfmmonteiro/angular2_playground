@@ -1,3 +1,6 @@
-*/node_modules/*
-*/built/*
+**/node_modules
+**/built
+**/.idea
+**/*.iml
+**/*.log
 
