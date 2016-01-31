@@ -3,10 +3,14 @@ import { Component } from 'angular2/core';
 
 @Component({
     selector: 'hello-world',
-    template: `<div>Hello World!</div>`
+    template: `<div>Hello {{name}}!</div>`
 })
 class HelloWorld {
+    private name:string;
 
+    constructor() {
+        this.name = 'Nuno Monteiro';
+    }
 }
 
 bootstrap(HelloWorld);
