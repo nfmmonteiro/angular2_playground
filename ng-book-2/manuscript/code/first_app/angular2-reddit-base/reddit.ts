@@ -3,7 +3,7 @@ import { Component, View} from 'angular2/core';
 
 class Article {
 
-    constructor(private title:string, private link:string, private votes?:number) {
+    constructor(public title:string, public link:string, public votes?:number) {
         this.title = title;
         this.link = link;
         this.votes = votes || 0;
@@ -91,7 +91,7 @@ class ArticleComponent {
             </form>
 
             <div class="ui grid posts">
-                <reddit-article *ngFor="#article of articles" [model]="article"></reddit-article>
+                <reddit-article *ngFor="#article of sortedArticles()" [model]="article"></reddit-article>
             </div>
         </div>
     `
@@ -101,8 +101,8 @@ class RedditComponent {
     private articles:Array<Article> = [];
 
     constructor() {
-        this.articles.push(new Article('Angular2', 'http://angular.io'));
-        this.articles.push(new Article('Full stack', 'http://fullstack.io'));
+        this.articles.push(new Article('Angular2', 'http://angular.io', 1));
+        this.articles.push(new Article('Full stack', 'http://fullstack.io', 3));
     }
 
     addArticle(title:HTMLInputElement, link:HTMLInputElement):boolean {
@@ -110,6 +110,12 @@ class RedditComponent {
         this.articles.push(new Article(title.value, link.value));
         title.value = link.value = '';
         return false;
+    }
+
+    sortedArticles():Array<Article> {
+        return this.articles.sort((a:Article, b:Article) => {
+            return (b.votes - a.votes);
+        });
     }
 }
 
