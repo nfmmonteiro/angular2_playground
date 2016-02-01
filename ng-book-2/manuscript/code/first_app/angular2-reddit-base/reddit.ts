@@ -4,8 +4,6 @@ import { Component, View} from 'angular2/core';
 class Article {
 
     constructor(public title:string, public link:string, public votes?:number) {
-        this.title = title;
-        this.link = link;
         this.votes = votes || 0;
     }
 
