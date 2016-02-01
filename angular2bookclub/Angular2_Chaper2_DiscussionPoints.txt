@@ -1,0 +1,73 @@
+=== CONSTANTS ===
+const name = 'Nuno Monteiro';
+name = ''; // compilation error (cannot modify constant)
+
+=== ENUMS ===
+-> Create enum with Strings as values. For example:
+
+enum Brand {
+    AUDI = 'AUDI' as any,
+    BMW = 'BMW' as any,
+    MERCEDES = 'MERCEDES' as any
+}
+
+console.log('typeof Brand', typeof Brand); // object
+console.log('typeof Brand.AUDI', typeof Brand.AUDI); // string
+console.log('Brand["MERCEDES"] === Brand.MERCEDES', Brand['MERCEDES'] === Brand.MERCEDES); // true
+
+
+=== CLASSES ===
+-> Create object properties in the constructor. 
+-> Create optional parameters (votes?)
+For example:
+class Article {
+	constructor(public title:string, public link:string, public votes?:number) {
+		this.votes = votes || 0;
+	}
+}
+
+var article:Article = new Article('Angular2', 'http://angular.io'); // title and link are automatically saved
+console.log('title', article.title, 'link', article.link, 'votes', article.votes);
+
+
+=== COMPONENTS ===
+-> Create inputs for components
+
+@Component({
+	selector: 'my-component',
+	inputs: 'internal:external'
+})
+@View({
+	template: `<div>{{internal}}</div>`
+})
+class MyComponent {
+	private internal:string;
+}
+
+<my-component [external]="'hello world'"></my-component>
+
+
+=== IMPORTS ===
+-> Do not import 'angular2/common' directives and to not declare their use in the component's view (e.g. NgFor)
+-> We still need to import 'angular2/core' (e.g. Component, View)
+
+
+=== DECLARE A CLASS WITH CONSTANTS ===
+class HttpStatusCodes {
+	public static get OK():number { return 200; }
+	public static get ACCEPTED():number { return 201; }
+}
+
+
+=== INTERFACE ===
+-> when we want to declare a function that receives an argument with a specific type
+
+function(config:{env:string, size:number}) {} 
+
+OR
+
+interface Config {
+	env:string,
+	size:nubmer
+}
+function(config:Config) {}
