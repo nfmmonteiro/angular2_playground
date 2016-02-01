@@ -2,12 +2,11 @@ import { bootstrap } from 'angular2/platform/browser';
 import { Component, View} from 'angular2/core';
 
 class Article {
-    private votes:number;
 
-    constructor(private title:string, private link:string) {
+    constructor(private title:string, private link:string, private votes?:number) {
         this.title = title;
         this.link = link;
-        this.votes = 0;
+        this.votes = votes || 0;
     }
 
     voteUp() {
@@ -17,11 +16,20 @@ class Article {
     voteDown() {
         this.votes--;
     }
+
+    domain() {
+        try {
+            const link:string = this.link.split('//')[1];
+            return link.split('/')[0];
+        } catch(error) {
+            return null;
+        }
+    }
 }
 
 @Component({
     selector: 'reddit-article',
-    inputs: ['article'],
+    inputs: ['article:model'],
     host: {
         class: 'row'
     }
@@ -36,7 +44,7 @@ class Article {
         </div>
         <div class="twelve wide column">
           <a class="ui large header" href="{{article.link}}">{{article.title}}</a>
-          <div class="meta">({{article.link}})</div>
+          <div class="meta">({{article.domain()}})</div>
           <ul class="ui big horizontal list voters">
             <li class="item"><a href (click)="voteUp()"><i class="arrow up icon"></i>upvote</a></li>
             <li class="item"><a href (click)="voteDown()"><i class="arrow down icon"></i>downvote</a></li>
@@ -46,7 +54,7 @@ class Article {
 })
 class ArticleComponent {
 
-    article:Article;
+    private article:Article;
 
     voteUp():boolean {
         this.article.voteUp();
@@ -83,7 +91,7 @@ class ArticleComponent {
             </form>
 
             <div class="ui grid posts">
-                <reddit-article *ngFor="#article of articles" [article]="article"></reddit-article>
+                <reddit-article *ngFor="#article of articles" [model]="article"></reddit-article>
             </div>
         </div>
     `
@@ -100,6 +108,7 @@ class RedditComponent {
     addArticle(title:HTMLInputElement, link:HTMLInputElement):boolean {
         console.log(`Adding a new article with title: ${title.value} and link: ${link.value}`);
         this.articles.push(new Article(title.value, link.value));
+        title.value = link.value = '';
         return false;
     }
 }
