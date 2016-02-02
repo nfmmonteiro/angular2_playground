@@ -17,7 +17,7 @@ console.log('Brand["MERCEDES"] === Brand.MERCEDES', Brand['MERCEDES'] === Brand.
 
 
 === CLASSES ===
--> Create object properties in the constructor. 
+-> Create object properties in the constructor (constructor shorthand).
 -> Create optional parameters (votes?)
 For example:
 class Article {

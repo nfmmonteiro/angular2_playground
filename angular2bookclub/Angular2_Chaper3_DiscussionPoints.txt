@@ -25,3 +25,20 @@ selector: '[inventory-app]'
 html: <div inventory-app></div>
 
 
+== NgFor ==
+Exposes index:number, last:boolean, odd:boolean, even:boolean variables;
+
+<div *ngFor="#product of products; #index=index; #last=last; #odd=odd; #even=even;"></div>
+
+
+
+== Data Flow ==
+[] - input data flow (data flows into the component)
+() - ouput data flow (data flows out of the component) - makes use of angular/core/EventEmitter.
+
+
+
+
+
+
+
