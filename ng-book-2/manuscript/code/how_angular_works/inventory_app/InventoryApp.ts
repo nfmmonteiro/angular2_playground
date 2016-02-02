@@ -1,7 +1,5 @@
 import {bootstrap} from 'angular2/platform/browser';
-import {Component, View, EventEmitter} from 'angular2/core';
-import {Input} from "angular2/core";
-import {Output} from "angular2/core";
+import {Component, View, EventEmitter, Input, Output} from 'angular2/core';
 
 class Product {
     constructor(public sku:string,
@@ -95,17 +93,17 @@ class ProductsList {
 
     @Input('productList')
     private products:Array<Product>;
-    @Output()
-    private onProductSelected:EventEmitter<Product>;
+    @Output('onProductSelected')
+    private productEventEmitter:EventEmitter<Product>;
     private currentProduct:Product;
 
     constructor() {
-        this.onProductSelected = new EventEmitter<Product>();
+        this.productEventEmitter = new EventEmitter<Product>();
     }
 
     selectProduct(product:Product):void {
         this.currentProduct = product;
-        this.onProductSelected.emit(product);
+        this.productEventEmitter.emit(product);
     }
 
     isSelected(product:Product):boolean {
