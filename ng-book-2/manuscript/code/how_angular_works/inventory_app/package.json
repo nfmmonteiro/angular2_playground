@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "tsc": "./node_modules/.bin/tsc",
-    "tsc:w": "./node_modules/.bin/tsc -w",
-    "serve": "./node_modules/.bin/live-server --host=localhost --port=8080 .",
+    "tsc": "tsc",
+    "tsc:w": "tsc -w",
+    "serve": "live-server --host=localhost --port=8080 .",
     "go": "concurrent \"npm run tsc:w\" \"npm run serve\" "
   },
   "license": "ISC",

@@ -27,7 +27,7 @@
           }
         }
       });
-      System.import('app.js')
+      System.import('built/InventoryApp.js')
             .then(null, console.error.bind(console));
     </script>
 
@@ -47,7 +47,7 @@
     </div>
 
     <div class="ui main text container">
-      <inventory-app></inventory-app> <!-- <--- Our app loads here! -->
+      <div inventory-app></div> <!-- <--- Our app loads here! -->
     </div>
 
   </body>
