@@ -1,0 +1,27 @@
+=== COMPONENTS ===
+An Angular 2 app is made up of Components, a tree of components. A component is a way of teaching the browser new tags. The Root component is the one that is bootstapped. A component is composable (it can be built from smaller components).
+
+
+=== Inventory management application ===
+
+InventoryManagementComponent
+	- NavigationComponent
+	- BreadcrumbComponent
+	- ProductListComponent
+		- ProductRowComponent
+			- ProductImageCompoment
+			- ProductPriceComponent
+			- ProductDepartmentComponent
+
+
+== @Component ==
+
+HTML TAG
+selector: 'inventory-app' 
+html: <inventory-app></inventory-app>
+
+HTML ATTRIBUTE
+selector: '[inventory-app]'
+html: <div inventory-app></div>
+
+
