@@ -17,7 +17,7 @@ class Product {
     host: {
         class: 'ui small image'
     },
-    template: '<img class="product-image" src="{{imageUrl}}" />'
+    template: '<img class="product-image" [src]="imageUrl" />'
 })
 class ProductImage {
     @Input()
@@ -30,7 +30,7 @@ class ProductImage {
         <div class="product-department">
             <span *ngFor="#name of department; #index=index">
                 <a href="#">{{name}}</a>
-                <span>{{ (index < department.length -1) ? '>' : '' }}</span>
+                <span>{{(index < department.length -1) ? '>' : ''}}</span>
             </span>
         </div>
     `
@@ -42,7 +42,7 @@ class ProductDepartment {
 
 @Component({
     selector: 'product-price',
-    template: '<div class="price-display">${{price}}</div>'
+    template: `<div class="price-display">\${{price}}</div>`
 })
 class ProductPrice {
     @Input()
@@ -130,7 +130,7 @@ class ProductsList {
         </div>
     `
 })
-class InventoryApp { // this is the InventoryApp component's controller
+class InventoryApp {
 
     private products:Array<Product> = [];
 
@@ -148,7 +148,5 @@ class InventoryApp { // this is the InventoryApp component's controller
         console.log('Product was selected', product);
     }
 }
-
-
 
 bootstrap(InventoryApp);
