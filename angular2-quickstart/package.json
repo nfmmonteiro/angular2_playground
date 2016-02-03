@@ -7,8 +7,8 @@
   "scripts": {
     "tsc": "tsc",
     "tsc:w": "tsc --watch",
-    "serve": "live-server --port=8080",
-    "go": "concurrent \"npm run tsc:w\" \"npm run serve\""
+    "server": "live-server --port=8080",
+    "start": "concurrent \"npm run tsc:w\" \"npm run server\""
   },
   "dependencies": {
     "angular2": "2.0.0-beta.2",
