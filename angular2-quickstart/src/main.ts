@@ -1,5 +1,5 @@
 import {AppComponent} from './app.component';
-import {TodoApp} from './TodoApp';
+import {TodoApp} from './todoApp/TodoApp';
 import {bootstrap} from 'angular2/platform/browser';
 
 
