@@ -1,6 +1,4 @@
 export class TodoModel {
-    public done:boolean;
-    constructor(public description:string) {
-        this.done = false;
+    constructor(public description:string, public done:boolean = false) {
     }
 }
