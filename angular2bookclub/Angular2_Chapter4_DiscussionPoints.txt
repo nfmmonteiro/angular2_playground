@@ -1,0 +1,6 @@
+*ngIf
+
+As opposed to Angular1, *ngIf in Angular2, does not create a new scope.
+Check implementation of ngIf here:
+https://github.com/angular/angular/blob/master/modules/angular2/src/common/directives/ng_if.ts
+
